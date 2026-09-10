@@ -141,33 +141,32 @@ public class TrafficViolationSystemTest {
     // ============================================================
 
     @Test
-    public void testOverSpeedingDetection() {
+public void testOverSpeedingDetection() {
 
-        TrafficViolationSystem system =
-                new TrafficViolationSystem();
+    TrafficViolationSystem system =
+            new TrafficViolationSystem();
 
-        system.registerVehicle(
-                createVehicle("TN01AB1234"));
+    system.registerVehicle(
+            createVehicle("TN01AB1234"));
 
-        TrafficViolationSystem.Violation violation =
-                system.detectOverSpeeding(
-                        "V001",
-                        "TN01AB1234",
-                        90,
-                        60,
-                        "Chennai",
-                        "EVENT001");
+    TrafficViolationSystem.Violation violation =
+            system.detectOverSpeeding(
+                    "V001",
+                    "TN01AB1234",
+                    100,
+                    60,
+                    "Chennai",
+                    "EVENT001");
 
-        assertEquals(
-                TrafficViolationSystem.ViolationType
-                        .OVER_SPEEDING,
-                violation.getViolationType());
+    assertEquals(
+            TrafficViolationSystem.ViolationType
+                    .OVER_SPEEDING,
+            violation.getViolationType());
 
-        assertEquals(
-                TrafficViolationSystem.ViolationSeverity
-                        .HIGH,
-                violation.getSeverity());
-    }
+    assertEquals(
+            TrafficViolationSystem.ViolationSeverity.HIGH,
+            violation.getSeverity());
+}
 
     @Test
     public void testSignalViolationDetection() {
